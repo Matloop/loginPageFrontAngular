@@ -27,16 +27,72 @@ main {
     .form-section {
         flex-grow: 0.3;
         padding: 0 35px;
+
+        img {
+            margin-bottom: 30px;
+        }
         h2{
-            font-size: 20px;
+            margin-bottom: 45px;
             font-weight: bold;
+    
         }
 
-        button{
-            
+        .btn-wrapper {
             width: 100%;
-            border: radius(8px);
-        }
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 30px;
+            .divider{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                color: $gray-bg;
+                gap: 20px;
+                width: 100%;
+                text-transform: uppercase;
+                div {
+                    height: 3px;
+                    background-color: $gray-bg;
+                    flex-grow: 1;
+                }
+            }
+            
+            button{
+            
+                width: 100%;
+                border-radius: 16px;
+                font-size: 16px;
+                font-weight: 500;       
+                background: transparent; 
+                padding: 12px 24px;
+                cursor: pointer;
+    
+                &.btn-primary {
+                    background-color: $primary-color;
+                    color: white;
+                    &:hover {
+                        background-color: darken($primary-color, 10%); // Escurece um pouco o azul
+                        border-color: darken($primary-color, 10%);
+                        // transform: translateY(-2px); // Exemplo: Mover um pouco para cima
+                    }
+                }
+    
+                &.btn-secondary {
+                    border-color: $primary-color;
+                    &:hover {
+                        background-color: $primary-color; // Fundo azul no hover
+                        color: white;                   // Texto branco no hover
+                        // transform: translateY(-2px); // Exemplo: Mover um pouco para cima
+                    }
+                }
+            }
+            
+        }   
+        
+        
     }
 }
 
