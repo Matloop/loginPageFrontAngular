@@ -4,7 +4,13 @@
         <h2>{{title}}</h2>
         <ng-content ></ng-content>
         <div class="btn-wrapper">
-            <button class="btn-primary" (click)="submit()" [disabled]="disablePrimaryBtn">{{primaryBtnText}}</button>
+            <div class="login-wrapper">
+                <button class="btn-primary" (click)="submit()" [disabled]="disablePrimaryBtn">{{primaryBtnText}}
+                </button>
+                <button type="button" class="button-google" (click)="loginGoogle()"><img src="../../../assets/png/Google_Icons-09-512.png" alt=""></button>
+                
+            </div>
+            
             
             <div class="divider">
                 <div></div>

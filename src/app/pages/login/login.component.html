@@ -5,6 +5,7 @@ title="Login into your account"
     secondayBtnText="Registre-se"
     (submit)="submit()"
     (navigate)="navigate()"
+    (googleSubmit)="loginWithGoogle()"
     [disablePrimaryBtn]="!loginForm.valid">
     
 <form [formGroup]="loginForm">

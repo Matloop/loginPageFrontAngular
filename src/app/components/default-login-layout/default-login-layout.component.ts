@@ -14,6 +14,7 @@ export class DefaultLoginLayoutComponent {
   @Input() disablePrimaryBtn: boolean = true;
   @Output("submit") onSubmit = new EventEmitter();
   @Output("navigate") onNavigate = new EventEmitter();
+  @Output("googleSubmit") onGoogleLogin = new EventEmitter();
 
   submit(){
     this.onSubmit.emit();
@@ -21,5 +22,8 @@ export class DefaultLoginLayoutComponent {
 
   navigate(){
     this.onNavigate.emit();
+  }
+  loginGoogle(){
+    this.onGoogleLogin.emit();
   }
 }

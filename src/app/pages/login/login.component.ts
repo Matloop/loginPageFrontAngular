@@ -51,5 +51,9 @@ export class LoginComponent {
   navigate(){
     this.router.navigate(["/signup"])
   }
+
+  loginWithGoogle(){
+    window.location.href = 'http://localhost:8080/oauth2/authorization/google';
+  }
   
 }

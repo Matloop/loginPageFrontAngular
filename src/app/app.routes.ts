@@ -4,6 +4,7 @@ import { SignUpComponent } from './pages/signup/signup.component';
 import { UserComponent } from './pages/user/user.component';
 import { AuthGuard } from './services/authguard.service';
 
+
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' 
     },
@@ -20,5 +21,6 @@ export const routes: Routes = [
         path: "user",
         component : UserComponent,
         canActivate:[AuthGuard]
-    }
+    },
+
 ];

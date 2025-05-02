@@ -4,7 +4,7 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: row;
-
+    height: 100%;
     section{
         height: 100%;
         display: flex;
@@ -38,6 +38,27 @@ main {
         }
 
         .btn-wrapper {
+            img {
+                width: 20%;
+            }
+            .login-wrapper{
+                display:flex;
+                align-items: center;
+                .button-google {
+                    padding: 0;                // Remove padding interno
+                    border: none;              // Remove a borda
+                    background: none;          // Remove o fundo padrão (cor/gradiente)
+                    background-color: transparent; // Garante fundo transparente
+                    font-size: 0;              // Esconde texto caso haja algum acidentalmente
+                    color: transparent;        // Esconde cor do texto
+                    outline: none;  
+                }
+                button {
+                    height: 70px;
+                }
+
+
+            }
             width: 100%;
             display: flex;
             justify-content: center;
@@ -82,6 +103,8 @@ main {
                         border-color: darken($primary-color, 10%);
                         // transform: translateY(-2px); // Exemplo: Mover um pouco para cima
                     }
+                    width: 80%;
+                    
                 }
     
                 &.btn-secondary {
