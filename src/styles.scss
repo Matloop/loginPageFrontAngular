@@ -6,8 +6,19 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins";
+    
 }
 
-html,body {
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body,html{
     height: 100%;
 }
+.app {
+    min-height: 100vh; /* sempre ocupa toda a altura da viewport */
+    display: flex;      /* se quiser distribuir conteúdo */
+    flex-direction: column;
+  }
