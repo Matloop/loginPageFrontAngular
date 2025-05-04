@@ -35,10 +35,10 @@ export class AddressComponent implements OnInit {
     this.addressForm = this.fb.group({
       // Controles para os campos que o usuário vai preencher
       // Não inclua 'id' ou 'proprietario' objeto aqui
-      cep: ['', Validators.required], // Exemplo de validação simples
+      cep: ['', Validators.required], 
       logradouro: ['', Validators.required],
       numero: ['', Validators.required],
-      complemento: [''], // Campo opcional
+      complemento: [''],
       bairro: ['', Validators.required],
       cidade: ['', Validators.required],
       uf: ['', [Validators.required, Validators.maxLength(2)]],
@@ -49,7 +49,6 @@ export class AddressComponent implements OnInit {
     this.loadOwners();
     
   }
-  
 
   // Hook ngOnDestroy: Chamado quando o componente é destruído
   ngOnDestroy(): void {
@@ -63,17 +62,13 @@ export class AddressComponent implements OnInit {
     .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (data: Address[]) => {
-          console.log('DADOS RECEBIDOS DIRETAMENTE NA FUNÇÃO NEXT:', data); // <-- É ESTE log que mostra []?
           this.addresses = data;
-          console.log('THIS.ADDRESSES APÓS ATRIBUIÇÃO NA FUNÇÃO NEXT:', this.addresses); // E este?
       },
-        
         error: (err) => {
           console.error('Erro ao carregar locais:', err);
           
         }
       });
-      console.log(this.addresses)
   }
 
   loadOwners() {
@@ -82,10 +77,6 @@ export class AddressComponent implements OnInit {
       .subscribe({
         next: (owners) => {
           this.owners = owners;
-          console.log('Lista de owners recebida:');
-          this.owners.forEach((owner, index) => {
-            console.log(owner);
-          });
         },
         error: (err) => {
           console.error('Erro ao carregar owners:', err);
@@ -93,11 +84,10 @@ export class AddressComponent implements OnInit {
       });
   }
   addAddress(){
-    
     if (this.addressForm.invalid) {
       console.log("Formulário inválido.");
-      this.addressForm.markAllAsTouched(); // Mostra erros se houver
-      return; // Interrompe se inválido
+      this.addressForm.markAllAsTouched(); 
+      return; 
     }
 
     const formData = this.addressForm.value;
@@ -114,7 +104,6 @@ export class AddressComponent implements OnInit {
     this.addressService.addAddress(addressDTO)
     .pipe(
       takeUntil(this.destroy$),
-       // Reseta o estado de submissão
     )
     .subscribe({
       next: (novoEnderecoSalvo) => {
@@ -125,7 +114,6 @@ export class AddressComponent implements OnInit {
       },
       error: (err) => {
         console.error('Erro ao salvar endereço:', err);
-        // Adicione feedback de erro para o usuário aqui, se desejar
       }
     });
   }
@@ -133,8 +121,6 @@ export class AddressComponent implements OnInit {
   displayForm(){
     this.showForm = !this.showForm
   }
-
-  
   }
 
   
