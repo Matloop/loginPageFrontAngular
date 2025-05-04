@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { Address } from '../models/address';
 
 @Injectable({
@@ -12,6 +12,18 @@ export class AddressService {
 
   getAddresses(): Observable<Address[]>{
     return this.http.get<Address[]>(this.url);
+  }
+
+  addAddress(address: Address): Observable<Address> {
+    return this.http.post<Address>(this.url,address)
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  private handleError(error: any): Observable<never> {
+    console.error('Erro no serviço:', error);
+    return throwError(() => new Error('Ocorreu um erro. Tente novamente mais tarde.'));
   }
 
 }

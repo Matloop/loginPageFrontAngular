@@ -4,6 +4,6 @@ export interface Owner{
   id : number,
   nome : string,
   email : string,
-  phone : string,
+  telefone : string,
   enderecos : Address[]
 }

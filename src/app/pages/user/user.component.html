@@ -18,4 +18,60 @@
       Nenhum endereço encontrado.
     </p>
   </div>
-  <button (click)="addAddress()"></button>
+  <div *ngIf=showForm>
+    <form [formGroup]="addressForm" (ngSubmit)="addAddress()">
+        <!-- ID (readonly or hidden) -->
+        <input formControlName="id" type="hidden" />
+      
+        <!-- CEP -->
+        <div>
+          <label for="cep">CEP:</label>
+          <input id="cep" formControlName="cep" type="text" />
+        </div>
+      
+        <!-- Logradouro -->
+        <div>
+          <label for="logradouro">Logradouro:</label>
+          <input id="logradouro" formControlName="logradouro" type="text" />
+        </div>
+      
+        <!-- Número -->
+        <div>
+          <label for="numero">Número:</label>
+          <input id="numero" formControlName="numero" type="text" />
+        </div>
+      
+        <!-- Complemento (opcional) -->
+        <div *ngIf="addressForm.get('complemento')">
+          <label for="complemento">Complemento:</label>
+          <input id="complemento" formControlName="complemento" type="text" />
+        </div>
+      
+        <!-- Bairro -->
+        <div>
+          <label for="bairro">Bairro:</label>
+          <input id="bairro" formControlName="bairro" type="text" />
+        </div>
+      
+        <!-- Cidade / UF -->
+        <div>
+          <label for="cidade">Cidade:</label>
+          <input id="cidade" formControlName="cidade" type="text" />
+        </div>
+        <div>
+          <label for="uf">UF:</label>
+          <input id="uf" formControlName="uf" type="text" />
+        </div>
+      
+        <!-- Proprietário -->
+        <div>
+          <label for="proprietarioId">Proprietário:</label>
+          <input id="proprietarioId" formControlName="proprietario.id" type="text" />
+        </div>
+      
+        <!-- Submit -->
+        <button type="submit" [disabled]="addressForm.invalid">Salvar</button>
+      </form>
+      
+  </div>
+  <button (click)="displayForm()">Adicionar endereço: </button>
