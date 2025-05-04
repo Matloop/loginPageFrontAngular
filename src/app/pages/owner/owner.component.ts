@@ -86,7 +86,7 @@ export class OwnerComponent {
       .subscribe({
         next: (novoEnderecoSalvo) => {
           console.log('Endereço adicionado com sucesso:', novoEnderecoSalvo);
-          this.owners.push(novoEnderecoSalvo); // Adiciona na lista local
+          this.owners.push(ownerDTO); // Adiciona na lista local
           this.showOwnerForm = false; // Esconde o formulário
           this.ownerForm.reset(); // Limpa os campos do formulário
         },

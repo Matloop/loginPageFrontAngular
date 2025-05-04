@@ -5,6 +5,7 @@ import { UserComponent } from './pages/user/user.component';
 import { AuthGuard } from './services/authguard.service';
 import { AuthCallbackComponent } from './components/auth-callback/auth-callback.component';
 import { OwnerComponent } from './pages/owner/owner.component';
+import { AddressComponent } from './pages/address/address.component';
 
 
 export const routes: Routes = [
@@ -31,6 +32,11 @@ export const routes: Routes = [
     {
         path: "owner",
         component: OwnerComponent,
+        canActivate:[AuthGuard]
+    },
+    {
+        path: "address",
+        component: AddressComponent,
         canActivate:[AuthGuard]
     }
 

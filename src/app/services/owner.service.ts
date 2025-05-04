@@ -15,8 +15,8 @@ url : string = "http://localhost:8080/owner"
     return this.http.get<Owner[]>(this.url);
   }
 
-  addOwner(address: Owner): Observable<Owner> {
-    return this.http.post<Owner>(this.url,address)
+  addOwner(owner: Owner): Observable<Owner> {
+    return this.http.post<Owner>(this.url,owner)
     .pipe(
       catchError(this.handleError)
     )
