@@ -6,6 +6,7 @@ import { AuthGuard } from './services/authguard.service';
 import { AuthCallbackComponent } from './components/auth-callback/auth-callback.component';
 import { OwnerComponent } from './pages/owner/owner.component';
 import { AddressComponent } from './pages/address/address.component';
+import { AppComponent } from './app.component';
 
 
 export const routes: Routes = [
@@ -37,6 +38,11 @@ export const routes: Routes = [
     {
         path: "address",
         component: AddressComponent,
+        canActivate:[AuthGuard]
+    },
+    {
+        path: '',
+        component: AppComponent,
         canActivate:[AuthGuard]
     }
 
