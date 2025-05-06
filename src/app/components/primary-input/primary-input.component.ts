@@ -1,11 +1,13 @@
 import { Component, forwardRef, Input } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from "../../pages/login/login.component";
+import { CommonModule } from '@angular/common';
 
 type InputTypes = "text" | "email" | "password"
 @Component({
   selector: 'app-primary-input',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,CommonModule,FormsModule],
   providers:[
     {
       provide: NG_VALUE_ACCESSOR,
@@ -23,10 +25,13 @@ export class PrimaryInputComponent implements ControlValueAccessor {
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
+  showPassword = false;  
   @Input() type: InputTypes = "text";
   @Input() placeholder: string = "";
   @Input() label : string = "oi";
   @Input() inputName : string = "";
+  openEyeIcon: string = "assets/svg/open-eye.svg";
+  closeEyeIcon: string = "assets/svg/closed-eye.svg";
 
   value: string = ''
   onChange: any = () => {}
@@ -42,6 +47,13 @@ export class PrimaryInputComponent implements ControlValueAccessor {
   }
 
   setDisabledState(isDisabled: boolean): void {
-    
+  }
+  get eyeIconClass(): string {
+    let eyePath: string = "assets/svg/close-eye.svg";
+    return this.showPassword ? eyePath + 'open-eye.svg' : eyePath + 'closed-eye.svg';
+  }
+
+  changeShowPassword(){
+    this.showPassword = !this.showPassword
   }
 }

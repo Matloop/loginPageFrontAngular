@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DefaultLoginLayoutComponent } from '../../components/default-login-layout/default-login-layout.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PrimaryInputComponent } from '../../components/primary-input/primary-input.component';
@@ -25,6 +25,9 @@ interface LoginForm{
 })
 export class LoginComponent {
   loginForm: FormGroup<LoginForm>;
+  @Input() showPassword: boolean = false;
+  openEyeIcon: string = "../../assets/svg/open-eye.svg";
+  closeEyeIcon: string = "../../assets/svg/close-eye.svg";
   
   constructor(private router : Router,
     private loginService : LoginService,
@@ -55,5 +58,7 @@ export class LoginComponent {
   loginWithGoogle(){
     window.location.href = 'http://localhost:8080/oauth2/authorization/google';
   }
+
+  
   
 }

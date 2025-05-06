@@ -12,7 +12,22 @@
         width: 100%;
         border-radius: 8px;
         display: flex;
-
+        
+        .eye-icon{
+            appearance: none;          
+            -webkit-appearance: none;  
+            background: none;          
+            border: 0;                 
+            padding: 0;               
+            margin: 0;                 
+            cursor: pointer;           
+            display: inline-flex;      
+            align-items: center;
+            justify-content: center;
+                
+            outline: none;   
+            
+        }
         .icon {
             padding: 12px;
             background-color: $primary-color;
